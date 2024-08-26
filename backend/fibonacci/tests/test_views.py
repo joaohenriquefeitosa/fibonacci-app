@@ -19,7 +19,12 @@ class TestFibonacciView:
     def test_fibonacci_negative_input(self):
         response = self.client.get(self.base_url + self.app_name, {'n': -1})
         assert response.status_code == status.HTTP_400_BAD_REQUEST
-        assert response.data == {'error': "'n' must be a non-negative integer."}
+        assert response.data == {'error': "'n' must be a non-negative integer and greater than 0."}
+
+    def test_fibonacci_zero_input(self):
+        response = self.client.get(self.base_url + self.app_name, {'n': 0})
+        assert response.status_code == status.HTTP_400_BAD_REQUEST
+        assert response.data == {'error': "'n' must be a non-negative integer and greater than 0."}
 
     def test_fibonacci_invalid_input(self):
         response = self.client.get(self.base_url + self.app_name, {'n': 'invalid'})

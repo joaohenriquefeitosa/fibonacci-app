@@ -8,8 +8,8 @@ def fibonacci(request):
     try:
         n = int(request.GET.get('n', ''))
 
-        if n < 0:
-            return Response({"error": "'n' must be a non-negative integer."}, status=400)
+        if n <= 0:
+            return Response({"error": "'n' must be a non-negative integer and greater than 0."}, status=400)
         
         return Response({"result": generate_fibonacci(n)})
     

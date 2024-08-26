@@ -19,6 +19,6 @@ from django.urls import include, path
 from fibonacci.views import fibonacci
 
 urlpatterns = [
-    path('admin/', fibonacci),
+    path('admin/', admin.site.urls),
     path('fibonacci/', include('fibonacci.urls')),
 ]
