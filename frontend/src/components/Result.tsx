@@ -7,9 +7,15 @@ function Result() {
     const navigate = useNavigate();
 
     useEffect(() => {
+        const apiUrl = process.env.REACT_APP_BACKEND_URL;
+        if (!apiUrl) {
+            console.error("API URL is not set");
+            return;
+        }
+
         const fetchFibonacciNumbers = async () => {
             try {
-                const response = await fetch(`http://localhost:8000/fibonacci/?n=${number}`);
+                const response = await fetch(`${apiUrl}?n=${number}`);
                 if (!response.ok) {
                     throw new Error(`Error: ${response.statusText}`);
                 }
