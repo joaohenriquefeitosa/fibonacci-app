@@ -1,1 +1,1 @@
-# fibonnaci-app
+# fibonacci-app
