@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from fibonacci.views import fibonacci
+from .views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', home),
     path('fibonacci/', include('fibonacci.urls')),
 ]
