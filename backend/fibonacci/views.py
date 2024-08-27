@@ -5,6 +5,9 @@ from rest_framework.decorators import api_view
 
 @api_view(['GET'])
 def fibonacci(request):
+    """
+    Get the Fibonacci sequence of length n.
+    """
     try:
         n = int(request.GET.get('n', ''))
 
